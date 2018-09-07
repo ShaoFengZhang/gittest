@@ -1,0 +1,46 @@
+1. git help 帮助信息 显示常用命令
+2. git help -a 显示全部命令
+3. git help -g 显示git的使用手册
+4. git help add(命令) 显示此命令的所有使用
+
+5. git的配置有3个范围 system(系统范围) global(针对用户全局设置) project(项目范围的设置) 一般我们在global(用户)范围内设置git.
+6. git config --global user.name '你的名字' 告诉git我们是谁
+7. git config --list 查看git的设置信息
+8. git config --unset --global user.name 重新设置名字
+9. git config --global user.email '你的邮箱'
+10. git config --global color.ui true 可以让git输出的东西带有颜色
+11. git config --list --show-origin 查看git的相关配置文件的路径
+
+12. git init 初始化一个项目 
+13. git add .(文件名称 .代表全部未添加的文件)
+14. git commit -m '提交信息' (不加-m git会打开默认的编辑器填写提交信息)
+15. git log [--oneline]查看以往的提交信息
+    git log --oneline --decorate --all -10 --graph --author='zhangshofeng'
+    git log --oneline --grep='index.html' 搜索关于index.html文件的提交日志
+    git log --oneline --before='2018-09-06' 显示这个日期之前的提交
+    git log --oneline --before='3 days' 显示这个日期之前的提交
+    git log --oneline --graph 可以有点图形效果
+16. git diff [--staged(对比add过的差别), ./xx(文件名称)]  查看不同,不写文件路径默认是对比所有文件的修改
+17. git rm ./xxx(文件) 移除文件[-r(删除文件夹)]
+18. git mv 旧文件名 新文件名    重命名旧文件为新文件名或者移动到新的文件夹下边
+19. git 不会跟踪空的目录
+20. git checkout HEAD -- index.html  回复删除的index.html文件
+21. git revert 提交的版本号     撤回这次提交或者更改
+22. git reset 控制指针指向哪一次的提交
+23. git branch [-a/-r]查看所有分支
+24. git branch develop 创建一个develop分支
+    git branch -m bugfix bugfix2 重命名分支名称
+    git branch -d bugfix2
+25. git checkout develop 切换到develop分支
+26. git diff master..develop index.html 对比两个分支index.html文件的差异
+27. git merge  develop 合并develop分支到master分支
+28. git stash save '描述'  保存修改但是不提交
+29. git stash list 显示保存的进度列表
+30. git stash show -p stash@{0} 对比不同
+31. git stash apply stash@{0} 恢复保存,继续编辑
+32. git config --global alias.co checkout 给checkout设置了一个别名co
+
+git remote add origin https://github.com/ShaoFengZhang/gittest.git 添加一个远程库
+git remote -v 查看远程库
+git remote rm origin 移除远程库
+git push -u origin master 推送跟踪远程分支master 
